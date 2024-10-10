@@ -16,13 +16,13 @@
 En esta práctica de procederá a instalar Nginx en Debian 12. Para ello el primer paso a seguir
 es la instalación. Para ello se ejecutarán los siguintes comandos:
 
-![img](./practica2-1images/screenshot.1.jpg)
+![img](./assets/practica2-1images/screenshot.1.jpg)
 
-![img](./practica2-1images/screenshot.2.jpg)
+![img](./assets/practica2-1images/screenshot.2.jpg)
 
 Hecho esto se verificará que la instalación ha tenido éxito ejecutando el siguiente comando:
 
-![img](./practica2-1images/screenshot.3.jpg)
+![img](./assets/practica2-1images/screenshot.3.jpg)
 
 <div id='id2'></div>
 
@@ -30,7 +30,7 @@ Hecho esto se verificará que la instalación ha tenido éxito ejecutando el sig
 Una vez instalado el sevidor, se procederá a la creación de la carpeta que albergará
 el sitio web (normalmente se utiliza /var/www). Se ejecutará el siguiente comando:
 
-![img](./practica2-1images/screenshot.4.jpg)
+![img](./assets/practica2-1images/screenshot.4.jpg)
 
 Dentro de la carpeta `html` se debe clonar el siguiente repositorio:
 ´https://github.com/cloudacademy/static-website-example.git´. Para ello
@@ -38,23 +38,23 @@ se inicializará un repositorio en dicha carpeta:
 
 Se usará la orden sudo git clone para evitar problemas con los permisos del directorio.
 
-![img](./practica2-1images/screenshot.5.jpg)
+![img](./assets/practica2-1images/screenshot.5.jpg)
 
 Y para asegurarse de no tener problemas a la hora de poner en marcha el servidor, se 
 hará propietario al usuario `www-data`.
 
-![img](./practica2-1images/screenshot.6.jpg)
+![img](./assets/practica2-1images/screenshot.6.jpg)
 
 En complemento al paso anterior, se le darán permisos para poder entrar sin problemas a la web:
 
-![img](./practica2-1images/screenshot.7.jpg)
+![img](./assets/practica2-1images/screenshot.7.jpg)
 
 Se comprobará que la configuración accediendo al siguiente enlace:
 `http://IP-maq-virtual`
 
 Si todo ha ido bien, deberá aparecer esto cuando accedamos a la url:
 
-![img](./practica2-1images/screenshot.8.jpg)
+![img](./assets/practica2-1images/screenshot.8.jpg)
 
 <div id='id3'></div>
 
@@ -66,23 +66,23 @@ En `sites-available` hay un archivo de configuración por defecto (default), que
 
 Para que Nginx presente el contenido de nuestra web, es necesario crear un bloque de servidor con las directivas correctas. En vez de modificar el archivo de configuración predeterminado directamente, crearemos uno nuevo en `/etc/nginx/sites-available/nombre_web`:
 
-![img](./practica2-1images/screenshot.9.jpg)
+![img](./assets/assets/practica2-1images/screenshot.9.jpg)
 
 Y en el archivo creado se escribirá el siguiente código:
 
-![img](./practica2-1images/screenshot.10.jpg)
+![img](./assets/practica2-1images/screenshot.10.jpg)
 
 Después de guardar el archivo de configuración, se creará un enlace simbólico en el directorio `sites-enabled` para que Nginx cargue tu configuración.
 
-![img](./practica2-1images/screenshot.11.jpg)
+![img](./assets/practica2-1images/screenshot.11.jpg)
 
 Se reiniciará para aplicar todos los cambios.
 
-![img](./practica2-1images/screenshot.12.jpg)
+![img](./assets/practica2-1images/screenshot.12.jpg)
 
 Se podrá realizar una comprobación para asegurarse de que todo lo hecho anteriormente es correcto:
 
-![img](./practica2-1images/screenshot.13.jpg)
+![img](./assets/practica2-1images/screenshot.13.jpg)
 
 <div id='id4'></div>
 
@@ -96,20 +96,20 @@ para que asocie la IP de la máquina virtual nmbre de nuestro servidor.
 
 **Debian** => `ip a`
 
-![img](./practica2-1images/screenshot.15.jpg)
+![img](./assets/practica2-1images/screenshot.15.jpg)
 
-![img](./practica2-1images/screenshot.16.jpg)
+![img](./assets/practica2-1images/screenshot.16.jpg)
 
 ### Comprobar Registros de Servidor
 Se comprobará que todo lo que suceda en el servidor, se registre en los archivos de logs.
 
 `/var/log/nginx/access.log`: se registrarán las solicitudes al servidor
 
-![img](./practica2-1images/screenshot.17.jpg)
+![img](./assets/practica2-1images/screenshot.17.jpg)
 
 `/var/log/nginx/error.log`: cualquier error se mostrará en este archivo.
 
-![img](./practica2-1images/screenshot.18.jpg)
+![img](./assets/practica2-1images/screenshot.18.jpg)
 
 <div id='id5'></div>
 
@@ -128,41 +128,41 @@ La principal ventaja de SFTP radica en la seguridad que ofrece durante la transf
 
 ### Configurar servidor SFTP en Debian
 El primer paso es instalar el  SFTP
-![img](./practica2-1images/screenshot.19.jpg)
+![img](./assets/practica2-1images/screenshot.19.jpg)
 
 A continuación se creará un directorio llamada FTP:
-![img](./practica2-1images/screenshot.20.jpg)
+![img](./assets/practica2-1images/screenshot.20.jpg)
 
 En la configuración de vsftpd se indicará que este será el directorio al que se cambie después de conectarse el usuario.
 
 Ahora se crearán los certificados de seguridad para cifrar la conexión
-![img](./practica2-1images/screenshot.21.jpg)
+![img](./assets/practica2-1images/screenshot.21.jpg)
 
 Hecho esto, se prodrá realizar la configuración de vsftpd. Para ello se berá editar el archivo `sudo nano /etc/vsftpd.conf`
 
 Primero, se deberán eliminar las siguientes líneas, que aparecen al final del documento.
-![img](./practica2-1images/screenshot.22.jpg)
+![img](./assets/practica2-1images/screenshot.22.jpg)
 
 Y se añadirán estas en su lugar
-![img](./practica2-1images/screenshot.23.jpg)
+![img](./assets/practica2-1images/screenshot.23.jpg)
 
 Finalmente, se reiniciará el servidor para aplicar los cambios.
-![img](./practica2-1images/screenshot.24.jpg)
+![img](./assets/practica2-1images/screenshot.24.jpg)
 
 Una vez finalizada la configuración previa, se podrá acceder al servidor mediante un cliente FTP (Filezilla)
 Tras la descarga, se introducirán los datos necesarios para realizar la conexion al servidor FTP en Debian:
 
-![img](./practica2-1images/screenshot.27.jpg)
+![img](./assets/practica2-1images/screenshot.27.jpg)
 
 Se rellenarán los campos que aparecen en la imagen y se hará click en "Conexion rápida"
 
 Aparecerá un aviso y le damos a aceptar:
-![img](./practica2-1images/screenshot.26.jpg)
+![img](./assets/practica2-1images/screenshot.26.jpg)
 
 Con esto, se establecerá una conexion con la carpeta indicada en el archivo de configuración
 
 Para comprobar que funciona correctamente, se transferirá un fichero de una máquina a otra.
-![img](./practica2-1images/screenshot.28.jpg)
+![img](./assets/practica2-1images/screenshot.28.jpg)
 
 Es recomendable que el puerto sea el 22 ya que se utiliza el protocolo SFTP ya que cifran mediante SSH los datos, a diferencia
 del puerto 21 que se quedan sin cifrar pero con los certificados se cifra la información.
@@ -178,23 +178,23 @@ Cuando el usuario acceda al sitio web mediante HTTP, se le redirijirá a HTTPS, 
 
 Para empezar, se deberá instalar OpenSSL, una herramienta que te permitirá crear certificados sin necesidad de una autoridad certificadora.
 Se generará una clave privada y un certificado autofirmado.
-![img](./practica2-1images/screenshot.35.jpg)
+![img](./assets/practica2-1images/screenshot.35.jpg)
 
 Se editará el archivo de configuración de Nginx.
-![img](./practica2-1images/screenshot.32.jpg)
+![img](./assets/practica2-1images/screenshot.32.jpg)
 
 Y se modificará de la siguiente manera
-![img](./practica2-1images/screenshot.34.jpg)
+![img](./assets/practica2-1images/screenshot.34.jpg)
 
 Hecho esto, habrá que mofificar el archivo `hosts` de nuestra máquina física.
-![img](./practica2-1images/screenshot.36.jpg)
+![img](./assets/practica2-1images/screenshot.36.jpg)
 
 Si todo ha ido bien al colocar en cualquier buscador `http://www.jaimegmweb.com`, se cambiará a
 `https` y se mostrará un mensaje de alerta. Esto es debido a que el certificado es autofirmado y 
 aparecerá que el sitio no es seguro.
-![img](./practica2-1images/screenshot.37.jpg)
+![img](./assets/practica2-1images/screenshot.37.jpg)
 
 Se obviará este aviso y se procederá a visualizar el contenido de la web:
-![img](./practica2-1images/screenshot.38.jpg)
+![img](./assets/practica2-1images/screenshot.38.jpg)
 
 En una situacion real, se deberá hacer uso de un certificado firmado válido como los generados por Certbot.
