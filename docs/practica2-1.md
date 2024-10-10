@@ -198,35 +198,3 @@ Se obviará este aviso y se procederá a visualizar el contenido de la web:
 ![img](./practica2-1images/screenshot.38.jpg)
 
 En una situacion real, se deberá hacer uso de un certificado firmado válido como los generados por Certbot.
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
